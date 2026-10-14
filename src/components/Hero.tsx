@@ -202,7 +202,7 @@ const Hero = () => {
             </svg>
           </motion.a>
           <motion.a
-  href="https://programmer-stevenson.github.io/IT-Study-Material/"
+  href="https://brandon-in-tech.github.io/IT-Study-Material/"
   target="_blank"
   rel="noopener noreferrer"
   className="group flex w-full items-center justify-center gap-2 rounded-lg border border-blue-300/30 bg-slate-900/60 px-6 py-3 text-sm font-medium text-blue-100 backdrop-blur-sm sm:text-base"
