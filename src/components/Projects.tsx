@@ -7,6 +7,7 @@ import {
   Pause,
   Play,
   ChevronDown,
+  Server,
 } from 'lucide-react';
 
 const projects = [
@@ -126,7 +127,78 @@ const projects = [
   },
 ];
 
-type Project = (typeof projects)[number];
+type Project = {
+  title: string;
+  description: string;
+  githubUrl: string;
+  iconLabel: string;
+  screenshot: string;
+  tech: string[];
+  liveUrl?: string;
+  kind?: 'hardware';
+};
+
+// Repository links and summaries verified against the public GitHub READMEs.
+// Place the five provided screenshots in public/hardware/.
+const hardwareProjects: Project[] = [
+  {
+    kind: 'hardware',
+    title: 'Cisco ISR 1100 — IOS XE Firmware Restoration',
+    description:
+      'Documented maintenance on a physical Cisco C1111-8PWB router using ROMMON and a serial console. Work covered IOS XE 16.09.05 inspection, cryptographic-key handling, startup-configuration and NVRAM removal, bootflash formatting, and USB image backup and restoration operations, with redacted command evidence and verification notes.',
+    githubUrl:
+      'https://github.com/brandon-in-tech/Cisco-ISR-1100-Secure-Data-Sanitization-IOS-XE-Firmware-Restoration-Infrastructure-Project',
+    iconLabel: 'Cisco C1111-8PWB · Enterprise Routing',
+    screenshot: '/hardware/cisco111.png',
+    tech: ['Cisco ISR 1100', 'IOS XE', 'ROMMON', 'NVRAM', 'USB Recovery'],
+  },
+  {
+    kind: 'hardware',
+    title: 'Cisco ASA 5585-X — TFTP OS Restoration',
+    description:
+      'Recovered and restored a physical Cisco ASA 5585-X firewall through ROMMON and the ASA CLI. Cleared saved configuration, backed up the ASA image over TFTP, reinitialized internal flash, restored the operating system, and checked software boot, hardware inventory, and local boot settings. Separate FirePOWER module recovery was outside this project’s scope.',
+    githubUrl:
+      'https://github.com/brandon-in-tech/Cisco-ASA-Firewall--TFTP-OS-Restoration-and-Data-Sanitization',
+    iconLabel: 'Cisco ASA 5585-X · Firewall Recovery',
+    screenshot: '/hardware/ciscoasa.png',
+    tech: ['Cisco ASA', 'ROMMON', 'TFTP', 'Flash Recovery', 'CLI Verification'],
+  },
+  {
+    kind: 'hardware',
+    title: 'Cisco Catalyst 2960-X — IOS Recovery & Sanitization',
+    description:
+      'Serviced a physical Cisco Catalyst WS-C2960X-24TS-L switch through the bootloader and serial console. Documented flash formatting, secure-reset and FIPS zeroization operations, USB-based IOS boot and installation, boot-variable configuration, and VLAN, VTP, and hardware inspection. The technical report also records verification limits.',
+    githubUrl:
+      'https://github.com/brandon-in-tech/Cisco-Catalyst-2960X-Hands-On-Infrastructure-Project',
+    iconLabel: 'Cisco Catalyst 2960-X · Enterprise Switching',
+    screenshot: '/hardware/ciscocat.png',
+    tech: ['Catalyst 2960-X', 'Cisco IOS', 'NIST-Aligned Process', 'USB Recovery', 'Bootloader'],
+  },
+  {
+    kind: 'hardware',
+    title: 'Cisco Nexus 5596UP — NX-OS Recovery & Diagnostics',
+    description:
+      'Performed TFTP-based NX-OS recovery and system initialization on a physical Cisco Nexus N5K-C5596UP data-center switch. Documented kickstart and system-image transfers, bootflash and boot-setting management, hardware-module and power checks, CPU and memory inspection, and Ethernet diagnostics, including observed compatibility issues.',
+    githubUrl:
+      'https://github.com/brandon-in-tech/Cisco-Nexus-5596UP-Infrastructure-Project',
+    iconLabel: 'Cisco Nexus 5596UP · Data Center Switching',
+    screenshot: '/hardware/cisco5596.png',
+    tech: ['Cisco Nexus', 'NX-OS', 'TFTP', 'Bootflash', 'Hardware Diagnostics'],
+  },
+  {
+    kind: 'hardware',
+    title: 'Palo Alto NGFW — Security Policy & Network Implementation',
+    description:
+      'Restored and configured a physical Palo Alto Networks firewall using the PAN-OS CLI. Implemented Layer 3 interfaces, security zones, virtual routing, address objects, firewall rules, and source NAT, then successfully validated and committed the configuration. Verified as an isolated implementation; live traffic was not tested.',
+    githubUrl:
+      'https://github.com/brandon-in-tech/Palo-Alto-NGFW-Security-Policy-and-Network-Implementation',
+    iconLabel: 'Palo Alto Networks · Next-Generation Firewall',
+    screenshot: '/hardware/palo.png',
+    tech: ['PAN-OS', 'NGFW', 'Layer 3', 'Security Policies', 'Source NAT'],
+  },
+];
+
+
 
 const styles = `
 #projects.bs-projects {
@@ -655,7 +727,7 @@ const styles = `
   display: grid;
   place-items: center;
 
-  background: dce9f1;
+  background: #dce9f1;
 
   border: 1px solid #bdd5e7;
 
@@ -893,6 +965,90 @@ svg {
   }
 }
 
+
+/* Two project categories within the same original portfolio section. */
+.bs-projects .project-category + .project-category {
+  margin-top: 76px;
+  padding-top: 55px;
+  border-top: 1px solid #c4ddec;
+}
+
+.bs-projects .category-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  align-items: end;
+  gap: 32px;
+  margin-bottom: 30px;
+}
+
+.bs-projects .category-intro h3 {
+  color: var(--project-navy);
+  font-size: clamp(25px, 3vw, 36px);
+  line-height: 1.18;
+  letter-spacing: -0.04em;
+  font-weight: 650;
+}
+
+.bs-projects .category-intro p {
+  max-width: 440px;
+  justify-self: end;
+  color: var(--project-muted);
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+.bs-projects .category-kicker {
+  margin-bottom: 10px;
+  color: #305f88;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.bs-projects .hardware-project .project-shot,
+.bs-projects .hardware-project .project-media {
+  background: #222831;
+}
+
+.bs-projects .hardware-project .project-world {
+  display: none;
+}
+
+.bs-projects .project-hardware-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border: 1px solid #b8d5ea;
+  background: #e4f3fd;
+  color: #245981;
+  border-radius: 6px;
+}
+
+.bs-projects .stage-counter {
+  font-size: 11px;
+  font-weight: 600;
+  color: #51728d;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 760px) {
+  .bs-projects .category-intro {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .bs-projects .category-intro p {
+    justify-self: start;
+  }
+
+  .bs-projects .project-category + .project-category {
+    margin-top: 54px;
+    padding-top: 42px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .bs-projects .project-transition {
     animation: none;
@@ -914,137 +1070,100 @@ function ProjectCard({
   project: Project;
   featured?: boolean;
 }) {
-  const [imageFailed, setImageFailed] =
-    useState(false);
-
-  const isRepo =
-    project.githubUrl
-      .replace(/\/$/, '')
-      .split('/').length > 4;
+  const [imageFailed, setImageFailed] = useState(false);
+  const isHardware = project.kind === 'hardware';
+  const isRepo = project.githubUrl.replace(/\/$/, '').split('/').length > 4;
+  const displayUrl = project.liveUrl ?? project.githubUrl;
 
   return (
     <article
-      className={`project-card${
-        featured
-          ? ' project-featured'
-          : ''
+      className={`project-card${featured ? ' project-featured' : ''}${
+        isHardware ? ' hardware-project' : ''
       }`}
     >
       <div className="project-media">
-        <div
-          className="project-browser"
-          aria-hidden="true"
-        >
+        <div className="project-browser" aria-hidden="true">
           <i />
           <i />
           <i />
-
           <span>
-            {project.liveUrl
-              .replace(/^https?:\/\//, '')
-              .replace(/\/$/, '')}
+            {displayUrl.replace(/^https?:\/\//, '').replace(/\/$/, '')}
           </span>
         </div>
 
         {imageFailed ? (
           <div className="project-fallback">
-            <img
-              className="project-world"
-              src="/world.png"
-              alt=""
-            />
-
+            {isHardware ? (
+              <Server size={32} aria-hidden="true" />
+            ) : (
+              <img className="project-world" src="/world.png" alt="" />
+            )}
+            <span>{project.title}</span>
             <span>
-              {project.title}
-            </span>
-
-            <span>
-              Preview unavailable · Explore
-              the live website below
+              Preview unavailable · Explore the {isHardware ? 'GitHub project' : 'live website'} below
             </span>
           </div>
         ) : (
           <img
+            key={project.screenshot}
             className="project-shot"
             src={project.screenshot}
-            alt={`${project.title} website preview`}
-            loading="lazy"
+            alt={`${project.title} ${isHardware ? 'technical project screenshot' : 'website preview'}`}
+            loading={featured ? 'eager' : 'lazy'}
             decoding="async"
             width={960}
             height={600}
-            onError={() =>
-              setImageFailed(true)
-            }
+            onError={() => setImageFailed(true)}
           />
         )}
       </div>
 
       <div className="project-body">
         <div className="project-label">
-          <img
-            className="project-world"
-            src="/world.png"
-            alt=""
-          />
-
+          {isHardware ? (
+            <span className="project-hardware-icon">
+              <Server size={14} aria-hidden="true" />
+            </span>
+          ) : (
+            <img className="project-world" src="/world.png" alt="" />
+          )}
           {project.iconLabel.trim()}
         </div>
 
         <h3>{project.title}</h3>
+        <p className="project-description">{project.description}</p>
 
-        <p className="project-description">
-          {project.description}
-        </p>
-
-        <div
-          className="project-tags"
-          aria-label="Technologies"
-        >
+        <div className="project-tags" aria-label="Technologies">
           {project.tech.map((tech) => (
-            <span
-              className="project-tag"
-              key={tech}
-            >
+            <span className="project-tag" key={tech}>
               {tech}
             </span>
           ))}
         </div>
 
         <div className="project-links">
+          {!isHardware && project.liveUrl && (
+            <a
+              className="project-link project-link-primary"
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`View ${project.title} live (opens in a new tab)`}
+            >
+              View website
+              <ExternalLink size={14} aria-hidden="true" />
+            </a>
+          )}
           <a
-            className="project-link project-link-primary"
-            href={project.liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`View ${project.title} live (opens in a new tab)`}
-          >
-            View website
-
-            <ExternalLink
-              size={14}
-              aria-hidden="true"
-            />
-          </a>
-
-          <a
-            className="project-link"
+            className={`project-link${isHardware ? ' project-link-primary' : ''}`}
             href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={`${
-              isRepo
-                ? `Source code for ${project.title}`
-                : 'GitHub profile'
-            } (opens in a new tab)`}
+            aria-label={`${isHardware ? 'View technical documentation for' : isRepo ? 'Source code for' : 'GitHub profile for'} ${project.title} (opens in a new tab)`}
           >
-            <Github
-              size={15}
-              aria-hidden="true"
-            />
-
-            {isRepo
-              ? 'Source code'
-              : 'GitHub'}
+            <Github size={15} aria-hidden="true" />
+            {isHardware ? 'View GitHub project' : isRepo ? 'Source code' : 'GitHub'}
+            {isHardware && <ExternalLink size={13} aria-hidden="true" />}
           </a>
         </div>
       </div>
@@ -1052,308 +1171,175 @@ function ProjectCard({
   );
 }
 
-const Projects = () => {
-  const [active, setActive] =
-    useState(0);
-
-  const [showAll, setShowAll] =
-    useState(false);
-
-  const [paused, setPaused] =
-    useState(false);
-
-  const [hovered, setHovered] =
-    useState(false);
-
-  const [focused, setFocused] =
-    useState(false);
-
-  const [visible, setVisible] =
-    useState(true);
-
-  const [
-    reducedMotion,
-    setReducedMotion,
-  ] = useState(false);
+function ProjectSlideshow({
+  items,
+  label,
+}: {
+  items: Project[];
+  label: string;
+}) {
+  const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const [hovered, setHovered] = useState(false);
+  const [focused, setFocused] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
-    const query =
-      window.matchMedia(
-        '(prefers-reduced-motion: reduce)'
-      );
-
-    const updateMotion = () =>
-      setReducedMotion(query.matches);
-
-    const updateVisibility = () =>
-      setVisible(!document.hidden);
-
+    const query = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const updateMotion = () => setReducedMotion(query.matches);
+    const updateVisibility = () => setVisible(!document.hidden);
     updateMotion();
     updateVisibility();
-
-    query.addEventListener(
-      'change',
-      updateMotion
-    );
-
-    document.addEventListener(
-      'visibilitychange',
-      updateVisibility
-    );
-
+    query.addEventListener('change', updateMotion);
+    document.addEventListener('visibilitychange', updateVisibility);
     return () => {
-      query.removeEventListener(
-        'change',
-        updateMotion
-      );
-
-      document.removeEventListener(
-        'visibilitychange',
-        updateVisibility
-      );
+      query.removeEventListener('change', updateMotion);
+      document.removeEventListener('visibilitychange', updateVisibility);
     };
   }, []);
 
-  const playing =
-    !paused &&
-    !hovered &&
-    !focused &&
-    visible &&
-    !reducedMotion;
+  const playing = !paused && !hovered && !focused && visible && !reducedMotion;
 
   useEffect(() => {
-    if (!playing) return;
-
-    const timer =
-      window.setTimeout(() => {
-        setActive(
-          (current) =>
-            (current + 1) %
-            projects.length
-        );
-      }, 5000);
-
-    return () =>
-      window.clearTimeout(timer);
-  }, [active, playing]);
+    if (!playing || items.length < 2) return;
+    const timer = window.setTimeout(() => {
+      setActive((current) => (current + 1) % items.length);
+    }, 5000);
+    return () => window.clearTimeout(timer);
+  }, [active, playing, items.length]);
 
   const previousProject = () => {
-    setActive(
-      (current) =>
-        (current - 1 + projects.length) %
-        projects.length
-    );
+    setActive((current) => (current - 1 + items.length) % items.length);
   };
 
   const nextProject = () => {
-    setActive(
-      (current) =>
-        (current + 1) %
-        projects.length
-    );
+    setActive((current) => (current + 1) % items.length);
   };
 
+  if (!items.length) return null;
+
   return (
-    <section
-      id="projects"
-      className="bs-projects"
-      aria-labelledby="projects-heading"
+    <div
+      className="project-stage"
+      role="region"
+      aria-roledescription="carousel"
+      aria-label={label}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      onFocusCapture={() => setFocused(true)}
+      onBlurCapture={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) {
+          setFocused(false);
+        }
+      }}
     >
-      <style>{styles}</style>
-
-      <div className="projects-wrap">
-        <p className="projects-eyebrow">
-          Development portfolio
-        </p>
-
-        <header className="projects-heading">
-          <h2 id="projects-heading">
-            Selected{' '}
-            <span>Projects</span>
-          </h2>
-
-          <p>
-            Client websites, custom
-            applications, and production
-            development work.
-          </p>
-        </header>
-
-        <div
-          className="project-stage"
-          role="region"
-          aria-roledescription="carousel"
-          aria-label="Project showcase"
-          onMouseEnter={() =>
-            setHovered(true)
-          }
-          onMouseLeave={() =>
-            setHovered(false)
-          }
-          onFocusCapture={() =>
-            setFocused(true)
-          }
-          onBlurCapture={(event) => {
-            if (
-              !event.currentTarget.contains(
-                event.relatedTarget
-              )
-            ) {
-              setFocused(false);
-            }
-          }}
-        >
-          <div
-            aria-live={
-              playing
-                ? 'off'
-                : 'polite'
-            }
-            aria-atomic="true"
-          >
-            <div
-              key={
-                projects[active].title
-              }
-              className="project-transition"
-            >
-              <ProjectCard
-                project={
-                  projects[active]
-                }
-                featured
-              />
-            </div>
-          </div>
-
-          <div className="stage-controls">
-            <div className="stage-navigation">
-              <button
-                type="button"
-                onClick={previousProject}
-                aria-label="Previous project"
-              >
-                <ChevronLeft
-                  size={19}
-                />
-              </button>
-
-              {!reducedMotion && (
-                <button
-                  type="button"
-                  onClick={() =>
-                    setPaused(
-                      (current) =>
-                        !current
-                    )
-                  }
-                  aria-label={
-                    paused
-                      ? 'Play slideshow'
-                      : 'Pause slideshow'
-                  }
-                >
-                  {paused ? (
-                    <Play size={16} />
-                  ) : (
-                    <Pause size={16} />
-                  )}
-                </button>
-              )}
-
-              <button
-                type="button"
-                onClick={nextProject}
-                aria-label="Next project"
-              >
-                <ChevronRight
-                  size={19}
-                />
-              </button>
-            </div>
-
-            <div
-              className="stage-dots"
-              aria-label="Select a project"
-            >
-              {projects.map(
-                (
-                  project,
-                  index
-                ) => (
-                  <button
-                    type="button"
-                    key={
-                      project.title
-                    }
-                    aria-label={`Show ${project.title}`}
-                    aria-pressed={
-                      active === index
-                    }
-                    onClick={() =>
-                      setActive(
-                        index
-                      )
-                    }
-                  >
-                    <span />
-                  </button>
-                )
-              )}
-            </div>
-          </div>
+      <div aria-live={playing ? 'off' : 'polite'} aria-atomic="true">
+        <div key={items[active].title} className="project-transition">
+          <ProjectCard project={items[active]} featured />
         </div>
+      </div>
 
-        <div className="collection-bar">
-          <p>
-            More development work
-          </p>
-
-          <button
-            type="button"
-            className="collection-toggle"
-            aria-expanded={
-              showAll
-            }
-            aria-controls="full-portfolio"
-            onClick={() =>
-              setShowAll(
-                (current) =>
-                  !current
-              )
-            }
-          >
-            {showAll
-              ? 'Close portfolio collection'
-              : 'Explore full portfolio'}
-
-            <ChevronDown
-              size={18}
-            />
+      <div className="stage-controls">
+        <div className="stage-navigation">
+          <button type="button" onClick={previousProject} aria-label={`Previous ${label} project`}>
+            <ChevronLeft size={19} aria-hidden="true" />
+          </button>
+          {!reducedMotion && (
+            <button
+              type="button"
+              onClick={() => setPaused((current) => !current)}
+              aria-label={paused ? `Play ${label} slideshow` : `Pause ${label} slideshow`}
+            >
+              {paused ? <Play size={16} aria-hidden="true" /> : <Pause size={16} aria-hidden="true" />}
+            </button>
+          )}
+          <button type="button" onClick={nextProject} aria-label={`Next ${label} project`}>
+            <ChevronRight size={19} aria-hidden="true" />
           </button>
         </div>
 
-        <div
-          id="full-portfolio"
-          hidden={!showAll}
-        >
-          {showAll && (
-            <div className="projects-grid">
-              {projects.map(
-                (project) => (
-                  <ProjectCard
-                    key={
-                      project.title
-                    }
-                    project={
-                      project
-                    }
-                  />
-                )
-              )}
-            </div>
-          )}
+        <div className="stage-dots" aria-label={`Select a ${label} project`}>
+          {items.map((project, index) => (
+            <button
+              type="button"
+              key={project.title}
+              aria-label={`Show ${project.title}`}
+              aria-pressed={active === index}
+              onClick={() => setActive(index)}
+            >
+              <span />
+            </button>
+          ))}
         </div>
+        <span className="stage-counter" aria-label={`Slide ${active + 1} of ${items.length}`}>
+          {String(active + 1).padStart(2, '0')} / {String(items.length).padStart(2, '0')}
+        </span>
+      </div>
+    </div>
+  );
+}
+
+const Projects = () => {
+  const [showAll, setShowAll] = useState(false);
+
+  return (
+    <section id="projects" className="bs-projects" aria-labelledby="projects-heading">
+      <style>{styles}</style>
+      <div className="projects-wrap">
+        <p className="projects-eyebrow">Infrastructure & Development Portfolio</p>
+
+        <header className="projects-heading">
+          <h2 id="projects-heading">Selected <span>Projects</span></h2>
+          <p>Physical enterprise infrastructure work, network security engineering, and production React website development.</p>
+        </header>
+
+        <section className="project-category" aria-labelledby="hardware-projects-heading">
+          <div className="category-intro">
+            <div>
+              <p className="category-kicker">Physical infrastructure · Networking · Security</p>
+              <h3 id="hardware-projects-heading">Enterprise Hardware Projects</h3>
+            </div>
+            <p>Hands-on Cisco and Palo Alto equipment servicing, OS recovery, secure configuration removal, system diagnostics, and documented technical verification.</p>
+          </div>
+          <ProjectSlideshow items={hardwareProjects} label="Hardware infrastructure" />
+        </section>
+
+        <section className="project-category" aria-labelledby="software-projects-heading">
+          <div className="category-intro">
+            <div>
+              <p className="category-kicker">Frontend engineering · APIs · Production deployments</p>
+              <h3 id="software-projects-heading">Full-Stack Website Projects with React</h3>
+            </div>
+            <p>React and Next.js websites, custom interfaces, backend integrations, CMS implementations, and real client projects. Individual descriptions identify front-end-only work.</p>
+          </div>
+
+          <ProjectSlideshow items={projects} label="React website" />
+
+          <div className="collection-bar">
+            <p>More React website and development work</p>
+            <button
+              type="button"
+              className="collection-toggle"
+              aria-expanded={showAll}
+              aria-controls="full-portfolio"
+              onClick={() => setShowAll((current) => !current)}
+            >
+              {showAll ? 'Close portfolio collection' : 'Explore full portfolio'}
+              <ChevronDown size={18} aria-hidden="true" />
+            </button>
+          </div>
+
+          <div id="full-portfolio" hidden={!showAll}>
+            {showAll && (
+              <div className="projects-grid">
+                {projects.map((project) => (
+                  <ProjectCard key={project.title} project={project} />
+                ))}
+              </div>
+            )}
+          </div>
+        </section>
       </div>
     </section>
   );
