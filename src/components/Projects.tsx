@@ -14,7 +14,7 @@ const projects = [
   {
     title: 'KCKN Glass — Auto Glass & Repair',
     description:
-      'Full-stack Utah Located auto glass business site with service booking, gallery, financing info, and a custom admin dashboard. Built for a real client with Twilio SMS integration and MongoDB backend.',
+      'Full-stack website for a Utah auto glass business, featuring service booking, galleries, financing information, and a custom admin dashboard. Includes a MongoDB backend and Twilio SMS integration.',
     liveUrl: 'https://kcknglass.com/',
     githubUrl:
       'https://github.com/Programmer-stevenson/Los-s-Auto-Glass-',
@@ -26,7 +26,7 @@ const projects = [
   {
     title: 'Vorus Luxury Cologne',
     description:
-      'A fictional luxury cologne brand I designed and built end-to-end — I invented the product and brand identity, then handcrafted the entire web experience from scratch. Every visual, animation, and component is custom, with a complete cart, checkout flow, and sample subscription concept.',
+      'An original luxury fragrance brand and storefront concept, designed and developed from scratch. Includes custom visuals, animations, shopping cart, checkout flow, and a sample subscription experience.',
     liveUrl: 'https://vorus.onrender.com',
     githubUrl: 'https://github.com/Programmer-stevenson/Vorus',
     iconLabel: 'Fictional Product & Brand Design',
@@ -37,7 +37,7 @@ const projects = [
   {
     title: 'Pétale — Artisan Florist',
     description:
-      'One of my first complex React builds — a fictional luxury florist concept where I designed the logo, created all of the imagery, and handcrafted the entire front end from scratch. Features a bouquet shop showcase, featured products, a weddings section, and a same-day delivery concept. Front-end demo only.',
+      'An original luxury florist concept with custom branding, imagery, and React interface. Showcases bouquets, featured products, weddings, and same-day delivery messaging. Front-end demo only.',
     liveUrl: 'https://petale-luxury-floral.onrender.com/',
     githubUrl: 'https://github.com/Programmer-stevenson',
     iconLabel: 'Fictional Luxury Florist',
@@ -48,7 +48,7 @@ const projects = [
   {
     title: 'Super Duper Scooper',
     description:
-      'Live website demo built for a real Utah dog waste removal and lawn protection company serving West Jordan and the Salt Lake Valley. Features a quote-request form wired to a serverless form service, service-area coverage, a photo-confirmation visit concept, and a clean, conversion-focused design.',
+      'Website demo for a Utah pet-waste removal and lawn protection company. Features service-area details, a working quote-request form, a photo-confirmation concept, and a conversion-focused layout.',
     liveUrl: 'https://super-duper-scoopers.onrender.com/',
     githubUrl: 'https://github.com/Programmer-stevenson',
     iconLabel: 'Real Client · Live Website Demo',
@@ -59,7 +59,7 @@ const projects = [
   {
     title: 'Hazey Tattoos',
     description:
-      'Completely custom front-end portfolio site for a Utah tattoo artist. Features a filterable work gallery, services, reviews, and a booking CTA — all in a bespoke dark-and-gold editorial design built entirely from scratch.',
+      'Custom front-end portfolio for a Utah tattoo artist, with a filterable work gallery, service listings, client reviews, and a booking call to action in a dark-and-gold design.',
     liveUrl: 'https://www.hazeytattoos.com',
     githubUrl: 'https://github.com/Programmer-stevenson',
     iconLabel: 'Utah Tattoo Artist Portfolio',
@@ -70,7 +70,7 @@ const projects = [
   {
     title: 'Kevin Inks — Original Tattoos',
     description:
-      'Custom portfolio and booking experience built for a real Las Vegas tattoo artist. The site pairs a responsive React frontend with a headless WordPress CMS and custom REST API, allowing the client to manage artwork, available designs, images, and site content without changing the frontend code.',
+      'React portfolio and booking experience for a Las Vegas tattoo artist. A headless WordPress CMS and custom REST API let the client update artwork, available designs, imagery, and site content.',
     liveUrl: 'https://kevin-inks.vercel.app/',
     githubUrl: 'https://github.com/Programmer-stevenson/Kevin-Inks',
     iconLabel: 'Las Vegas Tattoo Artist — Headless CMS',
@@ -88,7 +88,7 @@ const projects = [
   {
     title: 'Plexura.net',
     description:
-      'Modern full-service digital agency website showcasing advanced animations, responsive design, and modern frontend techniques.',
+      'Digital agency website featuring polished motion, responsive layouts, and custom React interface design.',
     liveUrl: 'https://plexura.net',
     githubUrl: 'https://github.com/Programmer-stevenson/Plexura',
     iconLabel: 'Agency Website',
@@ -99,7 +99,7 @@ const projects = [
   {
     title: 'My Portfolio Website',
     description:
-      'Interactive MERN Stack personal portfolio featuring a custom Three.js Saturn background, advanced animations, and a modern responsive interface showcasing technical experience, projects, and professional work.',
+      'Interactive professional portfolio featuring a custom Three.js Saturn scene, motion design, and responsive sections for experience, skills, and projects.',
     liveUrl: 'https://brandons-resume.com/',
     githubUrl: 'https://github.com/Programmer-stevenson/Resume',
     iconLabel: 'Personal Portfolio',
@@ -110,7 +110,7 @@ const projects = [
   {
     title: 'Tiger Paw Cleaning',
     description:
-      'Front-end website built for a real Missouri cleaning business featuring premium animations, Radix UI components, and conversion-focused service pages designed to attract residential and commercial clients. Lead-generation forms are handled via Web3Forms, and all imagery was provided by the client.',
+      'React website for a Missouri cleaning business, with animated service pages, Radix UI components, and Web3Forms lead capture. Uses client-provided photography.',
     liveUrl: 'https://tigerpawcleaning.com/',
     githubUrl:
       'https://github.com/Programmer-stevenson/Tiger-Paw-Cleaning',
@@ -136,82 +136,109 @@ type Project = {
   tech: string[];
   liveUrl?: string;
   kind?: 'hardware';
+  subtitle?: string;
+  highlights?: string[];
 };
 
-// Repository links and summaries verified against the public GitHub READMEs.
-// Place the five provided screenshots in public/hardware/.
+// Hardware screenshots keep their original filenames in the existing public/ folder.
+// Project details are based on the published GitHub documentation.
 const hardwareProjects: Project[] = [
   {
     kind: 'hardware',
-    title: 'Cisco ISR 1100 — IOS XE Firmware Restoration',
+    title: 'Cisco ISR 1100',
+    subtitle: 'Secure Data Sanitization & IOS XE Restoration',
     description:
-      'Documented maintenance on a physical Cisco C1111-8PWB router using ROMMON and a serial console. Work covered IOS XE 16.09.05 inspection, cryptographic-key handling, startup-configuration and NVRAM removal, bootflash formatting, and USB image backup and restoration operations, with redacted command evidence and verification notes.',
+      'Enterprise router maintenance on a physical Cisco C1111-8PWB, covering secure configuration removal, firmware recovery, and documented system verification.',
+    highlights: [
+      'ROMMON recovery and serial-console operations',
+      'NVRAM and bootflash sanitization procedures',
+      'USB image handling and IOS XE verification',
+    ],
     githubUrl:
       'https://github.com/brandon-in-tech/Cisco-ISR-1100-Secure-Data-Sanitization-IOS-XE-Firmware-Restoration-Infrastructure-Project',
-    iconLabel: 'Cisco C1111-8PWB · Enterprise Routing',
-    screenshot: '/hardware/cisco111.png',
-    tech: ['Cisco ISR 1100', 'IOS XE', 'ROMMON', 'NVRAM', 'USB Recovery'],
+    iconLabel: 'Enterprise Router · Cisco C1111-8PWB',
+    screenshot: '/cisco111.png',
+    tech: ['IOS XE', 'ROMMON', 'NVRAM', 'USB Recovery'],
   },
   {
     kind: 'hardware',
-    title: 'Cisco ASA 5585-X — TFTP OS Restoration',
+    title: 'Cisco ASA 5585-X',
+    subtitle: 'TFTP-Based OS Restoration & Flash Reset',
     description:
-      'Recovered and restored a physical Cisco ASA 5585-X firewall through ROMMON and the ASA CLI. Cleared saved configuration, backed up the ASA image over TFTP, reinitialized internal flash, restored the operating system, and checked software boot, hardware inventory, and local boot settings. Separate FirePOWER module recovery was outside this project’s scope.',
+      'Operating-system restoration and flash initialization performed on a physical Cisco ASA firewall, with recovery steps and post-boot checks documented.',
+    highlights: [
+      'ROMMON and ASA command-line recovery',
+      'TFTP image backup and restoration',
+      'Boot configuration and inventory verification',
+    ],
     githubUrl:
       'https://github.com/brandon-in-tech/Cisco-ASA-Firewall--TFTP-OS-Restoration-and-Data-Sanitization',
-    iconLabel: 'Cisco ASA 5585-X · Firewall Recovery',
-    screenshot: '/hardware/ciscoasa.png',
-    tech: ['Cisco ASA', 'ROMMON', 'TFTP', 'Flash Recovery', 'CLI Verification'],
+    iconLabel: 'Firewall Infrastructure · Cisco ASA',
+    screenshot: '/ciscoasa.png',
+    tech: ['Cisco ASA', 'ROMMON', 'TFTP', 'Flash Recovery'],
   },
   {
     kind: 'hardware',
-    title: 'Cisco Catalyst 2960-X — IOS Recovery & Sanitization',
+    title: 'Cisco Catalyst 2960-X',
+    subtitle: 'Secure Sanitization & IOS Recovery',
     description:
-      'Serviced a physical Cisco Catalyst WS-C2960X-24TS-L switch through the bootloader and serial console. Documented flash formatting, secure-reset and FIPS zeroization operations, USB-based IOS boot and installation, boot-variable configuration, and VLAN, VTP, and hardware inspection. The technical report also records verification limits.',
+      'Hardware servicing and IOS recovery procedures on an enterprise Catalyst switch, with recorded sanitization steps and technical verification boundaries.',
+    highlights: [
+      'Bootloader access and flash maintenance',
+      'USB-based IOS recovery and boot variables',
+      'VLAN, VTP, and hardware inspection',
+    ],
     githubUrl:
       'https://github.com/brandon-in-tech/Cisco-Catalyst-2960X-Hands-On-Infrastructure-Project',
-    iconLabel: 'Cisco Catalyst 2960-X · Enterprise Switching',
-    screenshot: '/hardware/ciscocat.png',
-    tech: ['Catalyst 2960-X', 'Cisco IOS', 'NIST-Aligned Process', 'USB Recovery', 'Bootloader'],
+    iconLabel: 'Enterprise Switching · Catalyst 2960-X',
+    screenshot: '/ciscocat.png',
+    tech: ['Cisco IOS', 'Bootloader', 'USB Recovery', 'Sanitization'],
   },
   {
     kind: 'hardware',
-    title: 'Cisco Nexus 5596UP — NX-OS Recovery & Diagnostics',
+    title: 'Cisco Nexus 5596UP',
+    subtitle: 'NX-OS Recovery & Hardware Diagnostics',
     description:
-      'Performed TFTP-based NX-OS recovery and system initialization on a physical Cisco Nexus N5K-C5596UP data-center switch. Documented kickstart and system-image transfers, bootflash and boot-setting management, hardware-module and power checks, CPU and memory inspection, and Ethernet diagnostics, including observed compatibility issues.',
+      'Data-center switch recovery and system initialization using TFTP, alongside hardware diagnostics and documented compatibility findings.',
+    highlights: [
+      'Kickstart and NX-OS system image transfers',
+      'Bootflash and boot-setting management',
+      'Module, power, CPU, memory, and port checks',
+    ],
     githubUrl:
       'https://github.com/brandon-in-tech/Cisco-Nexus-5596UP-Infrastructure-Project',
-    iconLabel: 'Cisco Nexus 5596UP · Data Center Switching',
-    screenshot: '/hardware/cisco5596.png',
-    tech: ['Cisco Nexus', 'NX-OS', 'TFTP', 'Bootflash', 'Hardware Diagnostics'],
+    iconLabel: 'Data Center Switching · Nexus 5596UP',
+    screenshot: '/cisco5596.png',
+    tech: ['NX-OS', 'TFTP', 'Bootflash', 'Diagnostics'],
   },
   {
     kind: 'hardware',
-    title: 'Palo Alto NGFW — Security Policy & Network Implementation',
+    title: 'Palo Alto NGFW',
+    subtitle: 'Security Policy & Network Implementation',
     description:
-      'Restored and configured a physical Palo Alto Networks firewall using the PAN-OS CLI. Implemented Layer 3 interfaces, security zones, virtual routing, address objects, firewall rules, and source NAT, then successfully validated and committed the configuration. Verified as an isolated implementation; live traffic was not tested.',
+      'Configuration of a physical Palo Alto Networks firewall using PAN-OS CLI, including Layer 3 networking, security controls, and a successful configuration commit.',
+    highlights: [
+      'Interfaces, zones, and virtual routing',
+      'Security rules, address objects, and source NAT',
+      'Validated commit in an isolated environment',
+    ],
     githubUrl:
       'https://github.com/brandon-in-tech/Palo-Alto-NGFW-Security-Policy-and-Network-Implementation',
-    iconLabel: 'Palo Alto Networks · Next-Generation Firewall',
-    screenshot: '/hardware/palo.png',
-    tech: ['PAN-OS', 'NGFW', 'Layer 3', 'Security Policies', 'Source NAT'],
+    iconLabel: 'Network Security · Palo Alto Networks',
+    screenshot: '/palo.png',
+    tech: ['PAN-OS', 'Layer 3', 'Security Policies', 'Source NAT'],
   },
 ];
-
-
 
 const styles = `
 #projects.bs-projects {
   --project-navy: #123253;
   --project-muted: #47637d;
   --project-line: #cadfee;
-
   padding: 96px 28px;
   scroll-margin-top: 80px;
   color: var(--project-navy);
-
   font-family: Inter, 'Segoe UI', Arial, sans-serif;
-
   background:
     radial-gradient(
       ellipse at 94% 8%,
@@ -268,15 +295,12 @@ const styles = `
   display: flex;
   gap: 16px;
   align-items: center;
-
   font-size: 11px;
   line-height: 1.5;
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-
   color: #305f88;
-
   margin-bottom: 21px;
 }
 
@@ -292,10 +316,8 @@ const styles = `
   grid-template-columns: 1.2fr 1fr;
   align-items: center;
   gap: 40px;
-
   padding-bottom: 30px;
   border-bottom: 1px solid #c4ddec;
-
   margin-bottom: 42px;
 }
 
@@ -304,7 +326,6 @@ const styles = `
   font-weight: 600;
   line-height: 1.08;
   letter-spacing: -0.045em;
-
   color: var(--project-navy);
 }
 
@@ -315,10 +336,8 @@ const styles = `
 .bs-projects .projects-heading p {
   max-width: 360px;
   justify-self: end;
-
   font-size: 14px;
   line-height: 1.85;
-
   color: var(--project-muted);
 }
 
@@ -328,10 +347,8 @@ const styles = `
 
 .bs-projects .project-transition {
   min-width: 0;
-
   animation:
     projectFadeIn 620ms cubic-bezier(.22, 1, .36, 1) both;
-
   will-change:
     opacity,
     transform,
@@ -359,15 +376,11 @@ const styles = `
 .bs-projects .project-card {
   display: flex;
   flex-direction: column;
-
   min-width: 0;
-
   background: #ffffffed;
   border: 1px solid #d0e3f1;
   border-radius: 20px;
-
   overflow: hidden;
-
   box-shadow: 0 12px 35px #254e7307;
 }
 
@@ -376,63 +389,43 @@ const styles = `
   grid-template-columns:
     minmax(0, 1.45fr)
     minmax(0, 1fr);
-
   gap: 42px;
   align-items: center;
-
   margin: 0;
-
   border: 0;
   border-radius: 0;
-
   background: transparent;
-
   box-shadow: none;
-
   overflow: visible;
 }
 
 .bs-projects .project-media {
   display: flex;
   flex-direction: column;
-
   background: #e8f3fb;
-
   border-bottom: 1px solid #d0e3f1;
-
   min-width: 0;
 }
 
 .bs-projects .project-featured .project-media {
   position: relative;
-
   border: 8px solid #e6edf3;
   border-bottom-width: 16px;
-
   border-radius: 15px;
-
   background: #e8f3fb;
-
   box-shadow: 0 22px 42px #23476220;
-
   margin-bottom: 40px;
-
   overflow: visible;
 }
 
 .bs-projects .project-featured .project-media::after {
   content: '';
-
   position: absolute;
-
   left: 39%;
   right: 39%;
   bottom: -45px;
-
   height: 28px;
-
   border-bottom: 7px solid #c3d2df;
-
   background:
     linear-gradient(
       90deg,
@@ -440,52 +433,38 @@ const styles = `
       #bfcddb,
       #e4edf4
     );
-
   border-radius: 0 0 6px 6px;
 }
 
 .bs-projects .project-browser {
   display: flex;
   align-items: center;
-
   gap: 5px;
-
   padding: 12px 16px;
-
   background: #f5faff;
-
   border-bottom: 1px solid #dcebf5;
-
   color: #58758e;
-
   min-width: 0;
 }
 
 .bs-projects .project-featured .project-browser {
   margin: 0;
-
   border-radius: 7px 7px 0 0;
-
   padding: 10px 12px;
 }
 
 .bs-projects .project-browser i {
   width: 5px;
   height: 5px;
-
   border-radius: 50%;
-
   background: #aecadd;
-
   flex-shrink: 0;
 }
 
 .bs-projects .project-browser span {
   font-size: 10px;
   letter-spacing: 0.01em;
-
   margin-left: 8px;
-
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -493,21 +472,15 @@ const styles = `
 
 .bs-projects .project-shot {
   display: block;
-
   width: 100%;
-
   aspect-ratio: 16 / 10;
-
   object-fit: contain;
-
   background: #e8f3fb;
 }
 
 .bs-projects .project-featured .project-shot {
   aspect-ratio: 16 / 10;
-
   margin: 0;
-
   border-radius: 0 0 3px 3px;
 }
 
@@ -516,37 +489,26 @@ const styles = `
   align-items: center;
   justify-content: center;
   flex-direction: column;
-
   gap: 12px;
-
   aspect-ratio: 16 / 10;
-
   padding: 24px;
-
   text-align: center;
-
   color: #456d8d;
-
   font-size: 13px;
 }
 
 .bs-projects .project-world {
   width: 40px;
   height: 40px;
-
   object-fit: contain;
-
   flex-shrink: 0;
 }
 
 .bs-projects .project-body {
   padding: 26px;
-
   display: flex;
   flex-direction: column;
-
   flex: 1;
-
   min-width: 0;
 }
 
@@ -557,29 +519,21 @@ const styles = `
 .bs-projects .project-label {
   display: flex;
   align-items: center;
-
   gap: 7px;
-
   font-size: 10px;
   font-weight: 650;
   letter-spacing: 0.09em;
   text-transform: uppercase;
   line-height: 1.65;
-
   color: #426d8f;
-
   margin-bottom: 13px;
 }
 
 .bs-projects .project-featured .project-label {
   color: #245981;
-
   font-size: 9px;
-
   letter-spacing: 0.1em;
-
   gap: 10px;
-
   margin-bottom: 19px;
 }
 
@@ -588,37 +542,28 @@ const styles = `
   line-height: 1.25;
   letter-spacing: -0.035em;
   font-weight: 600;
-
   color: var(--project-navy);
-
   margin-bottom: 14px;
-
   overflow-wrap: anywhere;
 }
 
 .bs-projects .project-featured h3 {
   font-size: clamp(25px, 2.6vw, 34px);
-
   line-height: 1.15;
-
   margin-bottom: 18px;
 }
 
 .bs-projects .project-description {
   font-size: 13px;
   line-height: 1.85;
-
   color: var(--project-muted);
-
   margin-bottom: 20px;
 }
 
 .bs-projects .project-tags {
   display: flex;
   flex-wrap: wrap;
-
   gap: 7px;
-
   margin-top: auto;
   margin-bottom: 24px;
 }
@@ -626,26 +571,18 @@ const styles = `
 .bs-projects .project-tag {
   font-size: 10px;
   line-height: 1.5;
-
   padding: 5px 9px;
-
   border: 1px solid #d4e5f2;
-
   border-radius: 6px;
-
   background: #edf6fd;
-
   color: #365f80;
 }
 
 .bs-projects .project-links {
   display: flex;
   flex-wrap: wrap;
-
   gap: 10px;
-
   padding-top: 20px;
-
   border-top: 1px solid #e1edf5;
 }
 
@@ -653,25 +590,16 @@ const styles = `
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   gap: 8px;
-
   min-height: 44px;
-
   border: 1px solid #b8cfdf;
-
   border-radius: 9px;
-
   padding: 10px 15px;
-
   font-size: 12px;
   font-weight: 600;
   line-height: 1.4;
-
   background: #dce9f1;
-
   color: #244f72;
-
   transition:
     background 180ms ease,
     border-color 180ms ease,
@@ -705,13 +633,9 @@ const styles = `
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   gap: 18px;
-
   flex-wrap: wrap;
-
   margin-top: 28px;
-
   padding: 0 0 26px;
 }
 
@@ -723,18 +647,12 @@ const styles = `
 .bs-projects .stage-navigation button {
   width: 44px;
   height: 44px;
-
   display: grid;
   place-items: center;
-
   background: #dce9f1;
-
   border: 1px solid #bdd5e7;
-
   border-radius: 50%;
-
   color: #234e70;
-
   transition:
     background 160ms ease,
     transform 160ms ease,
@@ -743,7 +661,6 @@ const styles = `
 
 .bs-projects .stage-navigation button:hover {
   background: #d9ecfa;
-
   transform: translateY(-1px);
 }
 
@@ -755,34 +672,24 @@ const styles = `
 .bs-projects .stage-dots button {
   width: 28px;
   height: 44px;
-
   border: 0;
-
   background: transparent;
-
   display: grid;
   place-items: center;
-
   padding: 0;
 }
 
 .bs-projects .stage-dots span {
   width: 6px;
   height: 6px;
-
   border-radius: 10px;
-
   background: #a2bfd4;
-
   transition:
     width 220ms ease,
     background 220ms ease;
 }
 
-.bs-projects
-.stage-dots
-button[aria-pressed='true']
-span {
+.bs-projects .stage-dots button[aria-pressed='true'] span {
   width: 18px;
   background: #235578;
 }
@@ -791,20 +698,15 @@ span {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   gap: 16px;
-
   padding: 22px 0;
-
   border-top: 1px solid #c4ddec;
   border-bottom: 1px solid #c4ddec;
-
   margin: 0 0 28px;
 }
 
 .bs-projects .collection-bar p {
   font-size: 12px;
-
   color: #53758e;
 }
 
@@ -812,24 +714,15 @@ span {
   display: flex;
   align-items: center;
   justify-content: center;
-
   gap: 14px;
-
   border: 0;
-
   background: #153b5e;
-
   color: #fff;
-
   padding: 13px 19px;
-
   min-height: 46px;
-
   border-radius: 9px;
-
   font-size: 12px;
   font-weight: 600;
-
   transition:
     background 180ms ease,
     transform 180ms ease;
@@ -840,18 +733,14 @@ span {
   transform: translateY(-1px);
 }
 
-.bs-projects
-.collection-toggle[aria-expanded='true']
-svg {
+.bs-projects .collection-toggle[aria-expanded='true'] svg {
   transform: rotate(180deg);
 }
 
 .bs-projects .projects-grid {
   display: grid;
-
   grid-template-columns:
     repeat(3, minmax(0, 1fr));
-
   gap: 22px;
 }
 
@@ -865,15 +754,12 @@ svg {
 @media (max-width: 960px) {
   .bs-projects .project-featured {
     gap: 27px;
-
     grid-template-columns:
       minmax(0, 1.1fr)
       minmax(0, 1fr);
   }
 
-  .bs-projects
-  .project-featured
-  .project-body {
+  .bs-projects .project-featured .project-body {
     padding: 0;
   }
 }
@@ -885,48 +771,35 @@ svg {
 
   .bs-projects .projects-heading {
     grid-template-columns: 1fr;
-
     gap: 15px;
-
     margin-bottom: 32px;
   }
 
   .bs-projects .projects-heading p {
     justify-self: start;
-
     max-width: 500px;
   }
 
   .bs-projects .project-featured {
     grid-template-columns: 1fr;
-
     gap: 28px;
   }
 
-  .bs-projects
-  .project-featured
-  .project-media {
+  .bs-projects .project-featured .project-media {
     border-right: 8px solid #e6edf3;
     border-bottom: 16px solid #e6edf3;
-
     margin-bottom: 24px;
   }
 
-  .bs-projects
-  .project-featured
-  .project-body {
+  .bs-projects .project-featured .project-body {
     padding: 0;
   }
 
-  .bs-projects
-  .project-featured
-  .project-shot {
+  .bs-projects .project-featured .project-shot {
     aspect-ratio: 16 / 10;
   }
 
-  .bs-projects
-  .project-featured
-  h3 {
+  .bs-projects .project-featured h3 {
     font-size: 28px;
   }
 }
@@ -938,7 +811,6 @@ svg {
 
   .bs-projects .projects-grid {
     grid-template-columns: 1fr;
-
     gap: 22px;
   }
 
@@ -948,7 +820,6 @@ svg {
 
   .bs-projects .collection-bar {
     align-items: stretch;
-
     flex-direction: column;
   }
 
@@ -960,11 +831,9 @@ svg {
 @media (max-width: 430px) {
   .bs-projects .stage-controls {
     justify-content: center;
-
     gap: 5px;
   }
 }
-
 
 /* Two project categories within the same original portfolio section. */
 .bs-projects .project-category + .project-category {
@@ -1026,6 +895,75 @@ svg {
   border-radius: 6px;
 }
 
+/* Presentation hierarchy: model, work performed, summary, and key steps. */
+.bs-projects .project-featured.hardware-project .project-body {
+  padding-block: 14px;
+}
+
+.bs-projects .project-label .project-world {
+  width: 18px;
+  height: 18px;
+}
+
+.bs-projects .hardware-project.project-featured h3 {
+  margin-bottom: 8px;
+  font-size: clamp(30px, 3vw, 40px);
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+}
+
+.bs-projects .project-subtitle {
+  margin-bottom: 16px;
+  max-width: 32ch;
+  font-size: clamp(15px, 1.5vw, 18px);
+  line-height: 1.45;
+  font-weight: 650;
+  color: #2e648c;
+  letter-spacing: -0.012em;
+}
+
+.bs-projects .hardware-project .project-description {
+  margin-bottom: 18px;
+  max-width: 57ch;
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.bs-projects .project-highlights {
+  display: grid;
+  gap: 11px;
+  padding: 0;
+  margin: 0 0 21px;
+  list-style: none;
+}
+
+.bs-projects .project-highlights li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  color: #355976;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.bs-projects .project-highlights li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  margin-top: 6px;
+  border-radius: 50%;
+  background: #3984b8;
+  flex-shrink: 0;
+}
+
+.bs-projects .hardware-project .project-tags {
+  margin-bottom: 18px;
+}
+
+.bs-projects .project-browser span {
+  font-variant-ligatures: none;
+}
+
 .bs-projects .stage-counter {
   font-size: 11px;
   font-weight: 600;
@@ -1060,8 +998,7 @@ svg {
   .bs-projects .stage-dots span {
     transition: none;
   }
-}
-`;
+}`;
 
 function ProjectCard({
   project,
@@ -1087,7 +1024,9 @@ function ProjectCard({
           <i />
           <i />
           <span>
-            {displayUrl.replace(/^https?:\/\//, '').replace(/\/$/, '')}
+            {isHardware
+              ? 'github.com/brandon-in-tech / technical documentation'
+              : displayUrl.replace(/^https?:\/\//, '').replace(/\/$/, '')}
           </span>
         </div>
 
@@ -1131,7 +1070,18 @@ function ProjectCard({
         </div>
 
         <h3>{project.title}</h3>
+        {project.subtitle && (
+          <p className="project-subtitle">{project.subtitle}</p>
+        )}
         <p className="project-description">{project.description}</p>
+
+        {project.highlights && (
+          <ul className="project-highlights" aria-label="Technical highlights">
+            {project.highlights.map((highlight) => (
+              <li key={highlight}>{highlight}</li>
+            ))}
+          </ul>
+        )}
 
         <div className="project-tags" aria-label="Technologies">
           {project.tech.map((tech) => (
@@ -1290,17 +1240,21 @@ const Projects = () => {
         <p className="projects-eyebrow">Infrastructure & Development Portfolio</p>
 
         <header className="projects-heading">
-          <h2 id="projects-heading">Selected <span>Projects</span></h2>
-          <p>Physical enterprise infrastructure work, network security engineering, and production React website development.</p>
+          <h2 id="projects-heading">
+            Selected <span>Projects</span>
+          </h2>
+          <p>Hands-on enterprise infrastructure projects alongside React websites, applications, and client work.</p>
         </header>
 
         <section className="project-category" aria-labelledby="hardware-projects-heading">
           <div className="category-intro">
             <div>
-              <p className="category-kicker">Physical infrastructure · Networking · Security</p>
+              <p className="category-kicker">
+                Physical infrastructure · Networking · Security
+              </p>
               <h3 id="hardware-projects-heading">Enterprise Hardware Projects</h3>
             </div>
-            <p>Hands-on Cisco and Palo Alto equipment servicing, OS recovery, secure configuration removal, system diagnostics, and documented technical verification.</p>
+            <p>Physical enterprise equipment, operating-system recovery, network security configuration, and documented diagnostics.</p>
           </div>
           <ProjectSlideshow items={hardwareProjects} label="Hardware infrastructure" />
         </section>
@@ -1308,10 +1262,12 @@ const Projects = () => {
         <section className="project-category" aria-labelledby="software-projects-heading">
           <div className="category-intro">
             <div>
-              <p className="category-kicker">Frontend engineering · APIs · Production deployments</p>
+              <p className="category-kicker">
+                Frontend engineering · APIs · Production deployments
+              </p>
               <h3 id="software-projects-heading">Full-Stack Website Projects with React</h3>
             </div>
-            <p>React and Next.js websites, custom interfaces, backend integrations, CMS implementations, and real client projects. Individual descriptions identify front-end-only work.</p>
+            <p>Client websites and original concepts built with React and Next.js, including APIs, content management, and responsive UI design.</p>
           </div>
 
           <ProjectSlideshow items={projects} label="React website" />
